@@ -111,6 +111,13 @@ local OtherTab = Window:CreateTab("Universal Cool Scripts", nil)
 local OtherSection = OtherTab:CreateSection("Universal Cool Scripts")
 
 local Button = OtherTab:CreateButton({
+   Name = "Fly GUI Antioder edition",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aftermath-dev/aftermath-hubs/refs/heads/main/fly"))()
+   end,
+})
+
+local Button = OtherTab:CreateButton({
    Name = "Chat Spy (/spy for toggle)",
    Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Chat-spy-3000"))()
