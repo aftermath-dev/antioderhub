@@ -1,9 +1,11 @@
+local copy = "https://t.me/aftermathscript"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "AntiOder Hub 1.1 | 🎄HAPPY NEW YEAR",
+   Name = "AntiOder Hub 1.11 | 🎄HAPPY NEW YEAR",
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
+   Theme = "DarkBlue",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -44,8 +46,14 @@ Rayfield:Notify({
 },
 })
 
-local Label = ABOUTTab:CreateLabel("I UPLOAD A SCRIPT LATER. NOW WITHOUT KEY AND OPENED. BUT STILL BETA!", "rewind")
-local Label = ABOUTTab:CreateLabel("POLICEMAN HUB SOON RENAMED TO ANTIODER HUB!")
+local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
+
+local Button = ABOUTTab:CreateButton({
+   Name = "Telegram channel",
+   Callback = function()
+setclipboard(tostring(copy))
+   end,
+})
 
 local MainTab = Window:CreateTab("Character", nil)
 local MainSection = MainTab:CreateSection("Character")
@@ -166,7 +174,7 @@ loadstring(game:HttpGet('https://pastefy.app/S7xNJSXX/raw'))()execute("Script14"
 })
 
 local Button = OtherTab:CreateButton({
-   Name = "Big Jump Button",
+   Name = "Big Jump Button (works on mobile, tablet have errors)",
    Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/p3TfEqQ2"))()
    end,
@@ -230,13 +238,6 @@ local Button = BrTab:CreateButton({
    Name = "Rochips Panel",
    Callback = function()
 loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Rochips-panel-20110"))()
-   end,
-})
-
-local Button = BrTab:CreateButton({
-   Name = "SkyHub",
-   Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Sky-Hub-18710"))()
    end,
 })
 
@@ -304,7 +305,7 @@ local SkinTab = Window:CreateTab("Skin", nil)
 local SkinSection = SkinTab:CreateSection("Skin Scripts")
 
 local Button = SkinTab:CreateButton({
-   Name = "Headless (FE)",
+   Name = "Headless (FE) [R6!]",
    Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Valiant-Ui-Lib-Gazed-/refs/heads/main/Head%20Pack'))()
    end,
@@ -335,8 +336,29 @@ loadstring(game:HttpGet(('https://pastefy.app/S7xNJSXX/raw'),true))()
 })
 
 local Button = ServerTab:CreateButton({
-   Name = "soon...",
+   Name = "Rejoin",
    Callback = function()
-print("<ANTIODER HUB NOTIFICATION> soon... :>")
+loadstring(game:HttpGet("https://pastebin.com/raw/wQ6GFfeG"))()
    end,
 })
+
+local Button = ServerTab:CreateButton({
+   Name = "Server Hop",
+   Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/EpHmm4Dz"))()
+   end,
+})
+
+local NewsTab = Window:CreateTab("News and Changelog", nil)
+local NewsSection = NewsTab:CreateSection("News")
+
+local Label = NewsTab:CreateLabel("Script officially released on scriptblox.com!", "rewind")
+local ChangeSection = NewsTab:CreateSection("Changelog")
+
+local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content = "Added new color of script, updated Server Tab, added changelog"})
+
+
+
+
+
+
