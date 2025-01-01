@@ -363,6 +363,7 @@ local Label = NewsTab:CreateLabel("Script officially released on scriptblox.com!
 local ChangeSection = NewsTab:CreateSection("Changelog")
 
 local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content = "Added new color of script, updated Server Tab, added changelog"})
+local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
 
 
 
