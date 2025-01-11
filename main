@@ -76,7 +76,7 @@ local Toggle = FuncTab:CreateToggle({
    Callback = function(Value)
            for _, highlight in ipairs(espContainer:GetChildren()) do
 		   highlight.Enabled = value
-           end
+           end,
    end,
 })
 
