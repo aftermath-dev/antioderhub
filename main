@@ -1,10 +1,5 @@
 
-local players = game:GetService("Players")
-local tweenService = game:GetService("TweenService")
 local copy = "https://t.me/aftermathscript"
-local Player = game:GetService("Players").LocalPlayer
-local camera = workspace.CurrentCamera
-local players = game:GetService("Players")
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
