@@ -1,4 +1,11 @@
 local copy = "https://t.me/aftermathscript"
+local function convertToHMS(Seconds)
+		local Minutes = (Seconds - Seconds%60)/60
+		Seconds = Seconds - Minutes*60
+		local Hours = (Minutes - Minutes%60)/60
+		Minutes = Minutes - Hours*60
+		return format(Hours)..":"..format(Minutes)..":"..format(Seconds)
+	end
 local localPlayer = players.LocalPlayer
 local camera = workspace.CurrentCamera
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
@@ -48,7 +55,7 @@ Rayfield:Notify({
 },
 })
 
-local Label = ABOUTTAB:CreateLabel("Welcome back, "..localPlayer.DisplayName)
+local Label = ABOUTTAB:CreateLabel("Welcome back, "localPlayer.DisplayName)
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
 
 local Button = ABOUTTab:CreateButton({
