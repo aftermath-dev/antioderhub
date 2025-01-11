@@ -14,14 +14,6 @@ local gameSettings = UserSettings():GetService("UserGameSettings")
 local copy = "https://t.me/aftermathscript"
 local Player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
-local highlight = Instance.new("Highlight")
-	highlight.FillTransparency = 1
-	highlight.OutlineTransparency = 0
-	highlight.OutlineColor = Color3.new(1,1,1)
-	highlight.Adornee = player.Character
-	highlight.Name = player.Name
-	highlight.Enabled = siriusValues.actions[7].enabled
-	highlight.Parent = espContainer
 local players = game:GetService("Players")
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
@@ -416,6 +408,15 @@ local Slider = CameraTab:CreateSlider({
         tweenService:Create(camera, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), { FieldOfView = value }):Play()
    end,
 })
+
+local highlight = Instance.new("Highlight")
+	highlight.FillTransparency = 1
+	highlight.OutlineTransparency = 0
+	highlight.OutlineColor = Color3.new(1,1,1)
+	highlight.Adornee = player.Character
+	highlight.Name = player.Name
+	highlight.Enabled = siriusValues.actions[7].enabled
+	highlight.Parent = espContainer
 
 
 
