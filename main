@@ -1,3 +1,4 @@
+local camera = workspace.CurrentCamera
 local copy = "https://t.me/aftermathscript"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
