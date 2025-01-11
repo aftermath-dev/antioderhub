@@ -368,7 +368,7 @@ local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content 
 local CameraTab = Window:CreateTab("Camera", nil)
 local CameraSection = AdminTab:CreateSection("Camera")
 
-local Slider = MainTab:CreateSlider({
+local Slider = CameraTab:CreateSlider({
    Name = "Field of view",
    Range = {45, 120},
    Increment = 1,
