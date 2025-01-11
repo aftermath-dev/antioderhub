@@ -1,5 +1,6 @@
 local copy = "https://t.me/aftermathscript"
 local character = player.Character or player.CharacterAdded:wait()
+local Player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
 local highlight = Instance.new("Highlight")
 	highlight.FillTransparency = 1
