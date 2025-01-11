@@ -55,7 +55,7 @@ Rayfield:Notify({
 },
 })
 
-local Label = ABOUTTAB:CreateLabel("Welcome back, "localPlayer.DisplayName)
+local Label = ABOUTTAB:CreateLabel("Welcome back, "..localPlayer.DisplayName)
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
 
 local Button = ABOUTTab:CreateButton({
