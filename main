@@ -47,6 +47,7 @@ Rayfield:Notify({
 })
 
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
+local Label = ABOUTTab:CreateLabel("Welcome back, "..localPlayer.Name)
 
 local Button = ABOUTTab:CreateButton({
    Name = "Telegram channel",
