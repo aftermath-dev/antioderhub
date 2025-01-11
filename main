@@ -1,13 +1,14 @@
 local copy = "https://t.me/aftermathscript"
-local function convertToHMS(Seconds)
-		local Minutes = (Seconds - Seconds%60)/60
-		Seconds = Seconds - Minutes*60
-		local Hours = (Minutes - Minutes%60)/60
-		Minutes = Minutes - Hours*60
-		return format(Hours)..":"..format(Minutes)..":"..format(Seconds)
-	end
-local localPlayer = players.LocalPlayer
 local camera = workspace.CurrentCamera
+local highlight = Instance.new("Highlight")
+	highlight.FillTransparency = 1
+	highlight.OutlineTransparency = 0
+	highlight.OutlineColor = Color3.new(1,1,1)
+	highlight.Adornee = player.Character
+	highlight.Name = player.Name
+	highlight.Enabled = siriusValues.actions[7].enabled
+	highlight.Parent = espContainer
+local players = game:GetService("Players")
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
@@ -62,6 +63,19 @@ local Button = ABOUTTab:CreateButton({
    Name = "Telegram channel",
    Callback = function()
 setclipboard(tostring(copy))
+   end,
+})
+
+local FuncTab = Window:CreateTab("Functions", nil)
+local FuncSection = FuncTab:CreateSection("Functions")
+
+local Toggle = FuncTab:CreateToggle({
+   Name = "ESP",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   for _, highlight in ipairs(espContainer:GetChildren()) do
+					highlight.Enabled = value
    end,
 })
 
