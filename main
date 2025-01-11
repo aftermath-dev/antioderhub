@@ -1,5 +1,94 @@
+mouse=game.Players.LocalPlayer:GetMouse()
+camera=game.Workspace.CurrentCamera
+UserInputService=game:GetService('UserInputService')
+VirtualInputManager=game:GetService('VirtualInputManager')
+RunService=game:GetService('RunService')
+player=game.Players.LocalPlayer
+
+walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
+gravity_value=game.Workspace.Gravity
+infinite_jump=false
+esp=false
+autoez=false
+loop_teleport=false
+ctrl_tp=false
+aimbot=false
+aim=false
+ambient=game.Lighting.Ambient
+outdoor_ambient=game.Lighting.OutdoorAmbient
+fogstart=game.Lighting.FogStart
+brightness=game.Lighting.Brightness
+clocktime=game.Lighting.ClockTime
+shadows=game.Lighting.GlobalShadows
+
+local ESP=Instance.new('Highlight')
+ESP.Name='Antioder Hub ESP'
+ESP.DepthMode=Enum.HighlightDepthMode.AlwaysOnTop
+ESP.FillTransparency=999
+
+
+-- SPEED WALK, JUMP POWER, INFINITE JUMP
+mouse.KeyDown:connect(function(i)
+	key=i:byte()
+	for i,v in {119, 97, 115, 100} do --WASD
+		if v==key then
+			player.Character.Humanoid.WalkSpeed=walkspeed_value
+			return
+		end
+	end
+	if key==32 then --Spacebar
+		player.Character.Humanoid.JumpPower=jumppower_value
+		game.Workspace.Gravity=gravity_value
+		if infinite_jump then
+			player.Character.Humanoid:ChangeState('Jumping')
+			wait(0.1)
+			player.Character.Humanoid:ChangeState('Seated')
+		end
+	end
+end)
+-- CTRL TP
+UserInputService.InputBegan:Connect(function(i, _)
+	if i.UserInputType==Enum.UserInputType.MouseButton1 then
+		if ctrl_tp and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+			player.Character:MoveTo(Vector3.new(mouse.Hit.x, mouse.Hit.y, mouse.Hit.z))
+		end
+	end
+end)
+-- AIMBOT
+local function getClosest()
+	local closestPlayer=nil
+	local closesDist=math.huge
+	if not player.Team then
+		team=1
+	else
+		team=player.Team
+	end
+	for i,v in pairs(game.Players:GetChildren()) do
+		if v.team~=team and v~=player then
+			local Dist=(game.Players.LocalPlayer.Character.HumanoidRootPart.Position-v.Character.HumanoidRootPart.Position).magnitude
+			if Dist<closesDist then
+				closesDist=Dist
+				closestPlayer=v
+			end
+		end
+	end
+	return closestPlayer
+end
+UserInputService.InputBegan:Connect(function(inp)
+    if aimbot and inp.UserInputType==Enum.UserInputType.MouseButton2 then
+    	aim=true
+  	 	while aim and wait() do
+  			camera.CFrame=CFrame.new(camera.CFrame.Position, getClosest().Character.Head.Position)
+  	  	end
+	end
+end)
+UserInputService.InputEnded:Connect(function(inp)
+    if inp.UserInputType==Enum.UserInputType.MouseButton2 then
+	    aim=false
+    end
+end)
 local camera = workspace.CurrentCamera
-local gameSettings = UserSettings():GetService("UserGameSettings")
 local tweenService = game:GetService("TweenService")
 local copy = "https://t.me/aftermathscript"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
@@ -86,31 +175,125 @@ local Slider = MainTab:CreateSlider({
    end,
 })
 
-local FuncTab = Window:CreateTab("Admin Scripts and More", nil)
-local FuncSection = FuncTab:CreateSection("Admin Scripts and More")
+local Slider = MainTab:CreateSlider({
+   Name = "Gravity",
+   Range = {1, 350},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderjp", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Workspace.Gravity = (Value)
+   end,
+})
+
+MainTab:CreateButton({
+	Name='Sit',
+	Callback=function()
+		player.Character.Humanoid.Sit=true
+	end,
+})
+
+local FuncTab = Window:CreateTab("Functions", nil)
+local FuncSection = FuncTab:CreateSection("Functions")
 
 local Toggle = FuncTab:CreateToggle({
    Name = "ESP",
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(value)
-loadstring(game:HttpGet("https://pastebin.com/raw/0rkjkAZg"))()
-   end,
+esp=state
+		while esp and wait(1) do
+			for i,v in pairs(game.Players:GetChildren()) do
+				if not v.Character then
+					continue
+				end
+				if not v.Character:FindFirstChild('HumanoidRootPart') then
+					continue
+				end
+				if v.Character.HumanoidRootPart:FindFirstChild('LALOL Hub ESP') then
+					continue
+				end
+				local ESP_Clone=ESP:Clone()
+				ESP_Clone.Adornee=v.Character
+				ESP_Clone.Parent=v.Character.HumanoidRootPart
+				ESP_Clone.OutlineColor=Color3.new(255, 255, 255)
+				if v.Team then
+					ESP_Clone.OutlineColor=v.Team.TeamColor.Color
+					print(1)
+				end
+			end
+		end
+		for i,v in pairs(game.Players:GetChildren()) do
+			if not v.Character then
+				continue
+			end
+			if not v.Character:FindFirstChild('HumanoidRootPart') then
+				continue
+			end
+			if v.Character.HumanoidRootPart:FindFirstChild('Antioder Hub ESP') then
+				v.Character.HumanoidRootPart:FindFirstChild('Antioder Hub ESP'):remove()
+			end
+		end
+	end,
 })
 
 local Toggle = FuncTab:CreateToggle({
-   Name = "Global Audio",
-   CurrentValue = true,
-   Flag = "Toggle2", -- A flag is the tifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(value)
-				if value then
-					oldVolume = gameSettings.MasterVolume
-					gameSettings.MasterVolume = 0
-				else
-					gameSettings.MasterVolume = oldVolume
+	Name = "No Clip",
+	CurrentValue = false,
+	Flag = "universal_noclip",
+	Callback = function(state)
+		if state then
+			noclip=RunService.Stepped:Connect(function()
+				for i,v in pairs(player.Character:GetDescendants()) do
+					if v:IsA('BasePart') and v.CanCollide then
+						v.CanCollide=false
+					end
 				end
-   end,
+				wait()
+			end)
+		else
+			noclip:Disconnect()
+		end
+	end,
 })
+
+local Toggle = FuncTab:CreateToggle({
+	Name = "Infinite Jump",
+	CurrentValue = false,
+	Flag = "universal_infinite_jump",
+	Callback = function(state)
+		infinite_jump=state
+	end,
+})
+local Func1Section = FuncTab:CreateSection('Teleport')
+local Toggle = FuncTab:CreateToggle({
+	Name = "Loop Teleport",
+	CurrentValue = false,
+	Flag = "universal_loop_teleport",
+	Callback = function(state)
+		loop_teleport=state
+	end,
+})
+local Input = FuncTab:CreateInput({
+	Name = "Teleport to Player",
+	PlaceholderText = "Nickname",
+	RemoveTextAfterFocusLost = false,
+	Callback = function(i)
+		for _,v in pairs(game.Players:GetPlayers()) do
+			if v.Name:lower():sub(1, #i)==i:lower() or v.DisplayName:lower():sub(1, #i)==i:lower() then
+				while true do
+					player.Character.HumanoidRootPart.CFrame=v.Character.HumanoidRootPart.CFrame
+					if not loop_teleport then
+						break
+					end
+					wait()
+				end
+			end
+		end
+	end,
+})
+
 
 
 
@@ -198,9 +381,9 @@ loadstring(game:HttpGet("https://pastebin.com/raw/dAnuL1X3"))()
 })
 
 local Button = OtherTab:CreateButton({
-   Name = "J*rk Off (ONLY R6!!!)",
+   Name = "J*rk Off V2 (R15 added!)",
    Callback = function()
-loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))("Spider Script")
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Jerk-Off-V2-25567"))()
    end,
 })
 
@@ -218,11 +401,16 @@ loadstring(game:HttpGet("https://pastebin.com/raw/p3TfEqQ2"))()
    end,
 })
 
-local Button = OtherTab:CreateButton({
-   Name = "Anti AFK",
-   Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/KazeOnTop/Rice-Anti-Afk/main/Wind", true))()
-   end,
+local Toggle = OtherTab:CreateToggle({
+	Name = "Anti-AFK",
+	CurrentValue = false,
+	Flag = "universal_antiafk",
+	Callback=function(state)
+		for i,v in pairs(getconnections(player.Idled)) do
+			if state then v:Disable() end
+			if not state then v:Enable() end
+		end
+	end,
 })
 
 local Button = OtherTab:CreateButton({
@@ -253,6 +441,44 @@ local Button = OtherTab:CreateButton({
    Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Math%20Problem'))()
    end,
+})
+
+local Other2Section = OtherTab:CreateSection("New Other Scripts! (2.00)")
+local Toggle = OtherTab:CreateToggle({
+	Name = "AutoEZ",
+	CurrentValue = false,
+	Flag = "universal_autoez",
+	Callback = function(state)
+		autoez=state
+		while autoez and wait(10) do
+			local num=math.random(1, 6)
+			if num==1 then
+				text='ez killed by antioder hub'
+			elseif num==2 then
+				text='ezzzzzz'
+			elseif num==3 then
+				text='ezzz antioder hub on top'
+			elseif num==4 then
+				text='ez noobs'
+			elseif num==5 then
+				text='ezzed by antioder hubb'
+			elseif num==6 then
+				text='ezzzzz win by antioder hub'
+			end
+			if game.PlaceId==286090429 then -- If arsenal
+				local args = {
+				    [1] = "Hah!",
+				    [2] = text,
+				    [3] = false,
+				    [5] = false,
+				    [6] = true
+				}
+				game:GetService("ReplicatedStorage").Events.PlayerChatted:FireServer(unpack(args))
+				continue
+			end
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack({[1]=text, [2]='All'}))
+		end
+	end,
 })
 
 local BrTab = Window:CreateTab("Brookhaven", nil)
@@ -286,12 +512,7 @@ local TROLLSection = TROLLTab:CreateSection("Raid Scripts")
 
 local Label = TROLLTab:CreateLabel("Check brookhaven tab if you raid brookhaven!!!", "rewind")
 
-local Button = TROLLTab:CreateButton({
-   Name = "Noclip (without gui)",
-   Callback = function()
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xiam0i/Zub-Hub/main/Universal%20Scripts/Noclip')))()
-   end,
-})
+
 
 local Button = TROLLTab:CreateButton({
    Name = "Vfly",
@@ -324,9 +545,16 @@ loadstring(game:HttpGet("https://pastebin.com/raw/4QdHkUA6"))()
    end,
 })
 
+local Button = ChatTab:CreateButton({
+   Name = "Censure bypass (with ich ich ich ich)",
+   Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/w7qBNv2D"))()
+   end,
+})
+
 
 local Button = ChatTab:CreateButton({
-   Name = "Universal Chat Edit (BETA)",
+   Name = "Universal Chat Edit (NEW LIBRARY)",
    Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/xSjxnwtb"))()
    end,
@@ -411,14 +639,70 @@ local Slider = CameraTab:CreateSlider({
    end,
 })
 
-local highlight = Instance.new("Highlight")
-	highlight.FillTransparency = 1
-	highlight.OutlineTransparency = 0
-	highlight.OutlineColor = Color3.new(1,1,1)
-	highlight.Adornee = player.Character
-	highlight.Name = player.Name
-	highlight.Enabled = siriusValues.actions[7].enabled
-	highlight.Parent = espContainer
+local VisualTab = Window:CreateTab("Visual", nil)
+local VisualSection = VisualTab:CreateSection("Visual")
+
+local Toggle = VisualTab:CreateToggle({
+	Name = "Pink Glasses",
+	CurrentValue = false,
+	Flag = "universal_pink_glasses",
+	Callback=function(state)
+		if state then
+			game.Lighting.Ambient=Color3.fromRGB(225, 20, 147)
+			game.Lighting.OutdoorAmbient=Color3.fromRGB(225, 20, 147)
+		else
+			game.Lighting.Ambient=ambient
+			game.Lighting.OutdoorAmbient=outdoor_ambient
+		end
+	end,
+})
+
+local Toggle = VisualTab:CreateToggle({
+	Name = "Remove Fog",
+	CurrentValue = false,
+	Flag = "universal_remove_fog",
+	Callback = function(state)
+		if state then
+			game.Lighting.FogStart=9e9
+		else
+			game.Lighting.FogStart=fogstart
+		end
+	end,
+})
+
+local Toggle = VisualTab:CreateToggle({
+	Name = "Full Brightness",
+	CurrentValue = false,
+	Flag = "universal_full_brightness",
+	Callback = function(state)
+		if state then
+			game.Lighting.Brightness=2
+			game.Lighting.ClockTime=14
+			game.Lighting.GlobalShadows=false
+			game.Lighting.OutdoorAmbient=Color3.fromRGB(128, 128, 128)
+		else
+			game.Lighting.Brightness=brightness
+			game.Lighting.ClockTime=clocktime
+			game.Lighting.GlobalShadows=shadows
+			game.Lighting.OutdoorAmbient=outdoor_ambient
+		end
+	end,
+})
+
+local GameTab = Window:CreateTab("Game", nil)
+local GameSection = GameTab:CreateSection("Game")
+
+local Input = GameTab:CreateInput({
+	Name = "FPS",
+	PlaceholderText = "60",
+	RemoveTextAfterFocusLost = false,
+	Callback = function(i)
+		setfpscap(i+0)
+	end,
+})
+
+
+
 
 
 
