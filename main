@@ -95,7 +95,7 @@ local Toggle = FuncTab:CreateToggle({
    Callback = function(value)
 for _, highlight in ipairs(espContainer:GetChildren()) do
 					highlight.Enabled = value
-   end,
+   end
 })
 
 local AdminTab = Window:CreateTab("Admin Scripts and More", nil)
