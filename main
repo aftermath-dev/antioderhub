@@ -394,15 +394,6 @@ local Slider = CameraTab:CreateSlider({
    end,
 })
 
-local highlight = Instance.new("Highlight")
-	highlight.FillTransparency = 1
-	highlight.OutlineTransparency = 0
-	highlight.OutlineColor = Color3.new(1,1,1)
-	highlight.Adornee = player.Character
-	highlight.Name = player.Name
-	highlight.Enabled = siriusValues.actions[7].enabled
-	highlight.Parent = espContainer
-
 
 
 
