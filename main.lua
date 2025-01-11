@@ -47,7 +47,6 @@ Rayfield:Notify({
 })
 
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
-local Label = ABOUTTab:CreateLabel("Welcome back," ..localPlayer.Name)
 
 local Button = ABOUTTab:CreateButton({
    Name = "Telegram channel",
@@ -365,6 +364,24 @@ local ChangeSection = NewsTab:CreateSection("Changelog")
 
 local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content = "Added new color of script, updated Server Tab, added changelog"})
 local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
+
+local CameraTab = Window:CreateTab("Camera", nil)
+local CameraSection = AdminTab:CreateSection("Camera")
+
+local Slider = MainTab:CreateSlider({
+   Name = "Field of view",
+   Range = {45, 120},
+   Increment = 1,
+   Suffix = "field of view",
+   CurrentValue = 70,
+   Flag = "sliderfov", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+        tweenService:Create(camera, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), { FieldOfView = value }):Play()
+			end,
+   end,
+})
+
+
 
 
 
