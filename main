@@ -1,16 +1,6 @@
-local coreGui = game:GetService("CoreGui")
-local httpService = game:GetService("HttpService")
-local lighting = game:GetService("Lighting")
+
 local players = game:GetService("Players")
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local runService = game:GetService("RunService")
-local guiService = game:GetService("GuiService")
-local statsService = game:GetService("Stats")
-local starterGui = game:GetService("StarterGui")
-local teleportService = game:GetService("TeleportService")
 local tweenService = game:GetService("TweenService")
-local userInputService = game:GetService('UserInputService')
-local gameSettings = UserSettings():GetService("UserGameSettings")
 local copy = "https://t.me/aftermathscript"
 local Player = game:GetService("Players").LocalPlayer
 local camera = workspace.CurrentCamera
