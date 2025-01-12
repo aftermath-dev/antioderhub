@@ -213,6 +213,14 @@ local Toggle = FuncTab:CreateToggle({
            end
     end,
 })
+local Toggle = FuncTab:CreateToggle({
+	Name = "Aimbot",
+	CurrentValue = false,
+	Flag = "universal_aimbot",
+	Callback = function(state)
+		aimbot=state
+	end,
+})
 
 local Toggle = FuncTab:CreateToggle({
 	Name = "No Clip",
