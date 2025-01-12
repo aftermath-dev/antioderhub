@@ -233,13 +233,13 @@ local Toggle = FuncTab:CreateToggle({
 
 local ColorPicker = FuncTab:CreateColorPicker({
     Name = "Color Esp",
-    Color = Color3.fromRGB(255,255,255),
+    Color = Color3.fromRGB(1,0,0),
     Flag = "ColorPicker1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
     Callback = function(Value)
-        Sense.teamSettings.enemy.boxColor = (Value)
-        Sense.teamSettings.enemy.boxFillColor = (Value)
-        Sense.teamSettings.enemy.nameColor = (Value)
-        Sense.teamSettings.enemy.distanceColor = (Value)
+        Sense.teamSettings.enemy.boxColor = { Color3.new(Value), 1 }
+        Sense.teamSettings.enemy.boxFillColor = { Color3.new(Value), 1 }
+        Sense.teamSettings.enemy.nameColor = { Color3.new(Value), 1 }
+        Sense.teamSettings.enemy.distanceColor = { Color3.new(Value), 1 }
     end
 })
 
