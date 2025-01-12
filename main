@@ -211,11 +211,9 @@ local Toggle = FuncTab:CreateToggle({
                    
            else
                Sense.Unload()
-
-
--- 4. Unload the esp. When you unload Sense, it will clean up every drawing object and instance it has made.
---Sense.Unload()
-
+           end
+    end,
+})
 
 local Toggle = FuncTab:CreateToggle({
 	Name = "No Clip",
