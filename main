@@ -1,4 +1,4 @@
-mouse=game.Players.LocalPlayer:GetMouse()
+local mouse=game.Players.LocalPlayer:GetMouse()
 camera=game.Workspace.CurrentCamera
 UserInputService=game:GetService('UserInputService')
 VirtualInputManager=game:GetService('VirtualInputManager')
@@ -7,7 +7,6 @@ player=game.Players.LocalPlayer
 
 walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
-gravity_value=game.Workspace.Gravity
 infinite_jump=false
 esp=false
 autoez=false
@@ -19,7 +18,7 @@ ambient=game.Lighting.Ambient
 outdoor_ambient=game.Lighting.OutdoorAmbient
 fogstart=game.Lighting.FogStart
 brightness=game.Lighting.Brightness
-clocktime=game.Lighting.ClockTime
+local clocktime=game.Lighting.ClockTime
 shadows=game.Lighting.GlobalShadows
 
 local ESP=Instance.new('Highlight')
