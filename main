@@ -92,6 +92,21 @@ local camera = workspace.CurrentCamera
 local tweenService = game:GetService("TweenService")
 local copy = "https://t.me/aftermathscript"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
+
+
+
+
+
+
+
+
+-- 3. Load the esp. It doesn't really matter where you put this, but it's recommended you put it at the end of your script.
+Sense.Load()
+
+-- 4. Unload the esp. When you unload Sense, it will clean up every drawing object and instance it has made.
+--Sense.Unload()
+
 
 local Window = Rayfield:CreateWindow({
    Name = "AntiOder Hub 1.12 | Executor: "..identifyexecutor(),
@@ -202,41 +217,18 @@ local Toggle = FuncTab:CreateToggle({
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(value)
-esp=state
-		while esp and wait(1) do
-			for i,v in pairs(game.Players:GetChildren()) do
-				if not v.Character then
-					continue
-				end
-				if not v.Character:FindFirstChild('HumanoidRootPart') then
-					continue
-				end
-				if v.Character.HumanoidRootPart:FindFirstChild('LALOL Hub ESP') then
-					continue
-				end
-				local ESP_Clone=ESP:Clone()
-				ESP_Clone.Adornee=v.Character
-				ESP_Clone.Parent=v.Character.HumanoidRootPart
-				ESP_Clone.OutlineColor=Color3.new(255, 255, 255)
-				if v.Team then
-					ESP_Clone.OutlineColor=v.Team.TeamColor.Color
-					print(1)
-				end
-			end
-		end
-		for i,v in pairs(game.Players:GetChildren()) do
-			if not v.Character then
-				continue
-			end
-			if not v.Character:FindFirstChild('HumanoidRootPart') then
-				continue
-			end
-			if v.Character.HumanoidRootPart:FindFirstChild('Antioder Hub ESP') then
-				v.Character.HumanoidRootPart:FindFirstChild('Antioder Hub ESP'):remove()
-			end
-		end
-	end,
-})
+           if value then
+                   Sense.teamSettings.enemy.enabled = true
+                   Sense.teamSettings.friendly.enabled = true
+                   Sense.Load()
+                   
+           else
+               Sense.Unload()
+
+
+-- 4. Unload the esp. When you unload Sense, it will clean up every drawing object and instance it has made.
+--Sense.Unload()
+
 
 local Toggle = FuncTab:CreateToggle({
 	Name = "No Clip",
