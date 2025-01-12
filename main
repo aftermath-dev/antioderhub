@@ -672,15 +672,6 @@ local Toggle = VisualTab:CreateToggle({
 local GameTab = Window:CreateTab("Game", nil)
 local GameSection = GameTab:CreateSection("Game")
 
-local Input = GameTab:CreateInput({
-	Name = "FPS",
-	PlaceholderText = "60",
-	RemoveTextAfterFocusLost = false,
-	Callback = function(i)
-		setfpscap(i+0)
-	        end
-        end,
-})
 
 
 
