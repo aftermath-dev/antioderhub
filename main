@@ -360,6 +360,29 @@ local Button = OtherTab:CreateButton({
 loadstring(game:HttpGet("https://pastebin.com/raw/HWD8dq9z"))()
    end,
 })
+local Slider = OtherTab:CreateSlider({
+   Name = "Stretched Resolution (растяг экрана)",
+   Range = {0.01, 1.00},
+   Increment = 0.01,
+   Suffix = "Resolution",
+   CurrentValue = 1.00,
+   Flag = "slidersr", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        getgenv().Resolution = {
+    [".gg/scripters"] = (Value)
+}
+
+local Camera = workspace.CurrentCamera
+if getgenv().gg_scripters == nil then
+    game:GetService("RunService").RenderStepped:Connect(
+        function()
+            Camera.CFrame = Camera.CFrame * CFrame.new(0, 0, 0, 1, 0, 0, 0, getgenv().Resolution[".gg/scripters"], 0, 0, 0, 1)
+        end
+    )
+end
+getgenv().gg_scripters = "Aori0001"
+   end,
+})
 
 local Button = OtherTab:CreateButton({
    Name = "Speed Animations Changer",
