@@ -7,7 +7,6 @@ player=game.Players.LocalPlayer
 
 walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
-infinite_jump=false
 esp=false
 autoez=false
 loop_teleport=false
