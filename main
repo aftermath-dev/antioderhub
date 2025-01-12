@@ -4,13 +4,10 @@ UserInputService=game:GetService('UserInputService')
 VirtualInputManager=game:GetService('VirtualInputManager')
 RunService=game:GetService('RunService')
 player=game.Players.LocalPlayer
-
 walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
-esp=false
 autoez=false
 loop_teleport=false
-ctrl_tp=false
 aimbot=false
 aim=false
 ambient=game.Lighting.Ambient
@@ -19,7 +16,6 @@ fogstart=game.Lighting.FogStart
 brightness=game.Lighting.Brightness
 local clocktime=game.Lighting.ClockTime
 shadows=game.Lighting.GlobalShadows
-
 local ESP=Instance.new('Highlight')
 ESP.Name='Antioder Hub ESP'
 ESP.DepthMode=Enum.HighlightDepthMode.AlwaysOnTop
@@ -97,13 +93,6 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 
-
-
--- 3. Load the esp. It doesn't really matter where you put this, but it's recommended you put it at the end of your script.
-Sense.Load()
-
--- 4. Unload the esp. When you unload Sense, it will clean up every drawing object and instance it has made.
---Sense.Unload()
 
 
 local Window = Rayfield:CreateWindow({
@@ -253,7 +242,11 @@ local Toggle = FuncTab:CreateToggle({
 	CurrentValue = false,
 	Flag = "universal_infinite_jump",
 	Callback = function(state)
-		infinite_jump=state
+		if state then
+			player.Character.Humanoid:ChangeState('Jumping')
+			wait(0.1)
+			player.Character.Humanoid:ChangeState('Seated')
+		end
 	end,
 })
 local Func1Section = FuncTab:CreateSection('Teleport')
