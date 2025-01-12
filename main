@@ -207,8 +207,7 @@ local Toggle = FuncTab:CreateToggle({
            if value then
                    Sense.teamSettings.enemy.enabled = true
                    Sense.teamSettings.friendly.enabled = true
-                   Sense.Load()
-                   
+                   Sense.Load()       
            else
                Sense.Unload()
            end
