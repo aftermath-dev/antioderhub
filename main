@@ -215,6 +215,22 @@ local Toggle = FuncTab:CreateToggle({
            end
     end,
 })
+
+local Toggle = FuncTab:CreateToggle({
+   Name = "Box Fill",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+           if value then
+                   Sense.teamSettings.enemy.boxFill = true
+                   Sense.teamSettings.friendly.boxFill = true    
+           else
+               Sense.teamSettings.enemy.boxFill = false
+               Sense.teamSettings.enemy.boxFill = false 
+           end
+    end,
+})
+
 local Toggle = FuncTab:CreateToggle({
 	Name = "Aimbot",
 	CurrentValue = false,
