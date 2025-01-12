@@ -681,7 +681,8 @@ local Input = GameTab:CreateInput({
 	RemoveTextAfterFocusLost = false,
 	Callback = function(i)
 		setfpscap(i+0)
-	end,
+	        end
+        end,
 })
 
 
