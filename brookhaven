@@ -96,7 +96,7 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 local Window = Rayfield:CreateWindow({
-   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.00 | Executor: "..identifyexecutor().." Brookhaven RP,
+   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." Brookhaven RP,
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "DarkBlue",
@@ -584,6 +584,13 @@ local Button = TROLLTab:CreateButton({
    Name = "Touch Fling",
    Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
+   end,
+})
+
+local Button = TROLLTab:CreateButton({
+   Name = "Fling GUI",
+   Callback = function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Fling-gui-troll-17597"))()
    end,
 })
 
