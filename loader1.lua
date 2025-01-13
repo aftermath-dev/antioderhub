@@ -7,4 +7,4 @@ StarterGui:SetCore("SendNotification", {
     Button1 = "OK"; -- Bouton optionnel
 })
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/aftermath-dev/antioderhub/refs/heads/main/main"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aftermath-dev/antioderhub/refs/heads/main/loader3"))()
