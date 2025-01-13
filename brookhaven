@@ -564,8 +564,6 @@ local TROLLTab = Window:CreateTab("Raid Scripts", nil)
 local TROLLSection = TROLLTab:CreateSection("Raid Scripts")
 
 
-local Label = TROLLTab:CreateLabel("Check brookhaven tab if you raid brookhaven!!!", "rewind")
-
 
 
 local Button = TROLLTab:CreateButton({
