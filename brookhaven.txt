@@ -96,7 +96,7 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 local Window = Rayfield:CreateWindow({
-   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." Brookhaven RP,
+   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." Trench War",
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "DarkBlue",
@@ -535,27 +535,27 @@ local Toggle = OtherTab:CreateToggle({
 	end,
 })
 
-local BrTab = Window:CreateTab("Brookhaven", nil)
-local BrSection = BrTab:CreateSection("Brookhaven")
+local BrTab = Window:CreateTab("Trench War", nil)
+local BrSection = BrTab:CreateSection("Trench War")
 
 local Button = BrTab:CreateButton({
-   Name = "SkyHub",
+   Name = "Script by exploitsn",
    Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Sky-Hub-18710"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Trench-War-OP-15571"))()
    end,
 })
 
 local Button = BrTab:CreateButton({
-   Name = "R4D Hub",
+   Name = "Trench War V2 White Theme",
    Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Brookhaven-RP-R4D-Script-By-M1zz-11757"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Trench-War-tw-script-13916"))()
    end,
 })
 
 local Button = BrTab:CreateButton({
-   Name = "Rochips Panel",
+   Name = "Hitbox Script",
    Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Rochips-panel-20110"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Trench-War-Hittoboxxo-7153"))()
    end,
 })
 
