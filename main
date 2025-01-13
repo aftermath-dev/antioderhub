@@ -96,7 +96,7 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 local Window = Rayfield:CreateWindow({
-   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.00 | Executor: "..identifyexecutor(),
+   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor(),
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "DarkBlue",
@@ -141,6 +141,9 @@ Rayfield:Notify({
 })
 
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
+local Label = ABOUTTab:CreateLabel("Supported Game: ❌")
+
+
 
 local Button = ABOUTTab:CreateButton({
    Name = "Telegram channel",
@@ -533,29 +536,6 @@ local Toggle = OtherTab:CreateToggle({
 	end,
 })
 
-local BrTab = Window:CreateTab("Brookhaven", nil)
-local BrSection = BrTab:CreateSection("Brookhaven")
-
-local Button = BrTab:CreateButton({
-   Name = "SkyHub",
-   Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Sky-Hub-18710"))()
-   end,
-})
-
-local Button = BrTab:CreateButton({
-   Name = "R4D Hub",
-   Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Brookhaven-RP-R4D-Script-By-M1zz-11757"))()
-   end,
-})
-
-local Button = BrTab:CreateButton({
-   Name = "Rochips Panel",
-   Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Rochips-panel-20110"))()
-   end,
-})
 
 
 local TROLLTab = Window:CreateTab("Raid Scripts", nil)
