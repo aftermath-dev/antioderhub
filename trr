@@ -96,7 +96,7 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 local Window = Rayfield:CreateWindow({
-   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." The Rake Remastered,
+   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." | The Rake Remastered",
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "DarkBlue",
