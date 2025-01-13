@@ -96,7 +96,7 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 local Window = Rayfield:CreateWindow({
-   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." | Murder Mystery 2",
+   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor().." | Flee The Facility",
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "DarkBlue",
@@ -535,8 +535,8 @@ local Toggle = OtherTab:CreateToggle({
 	end,
 })
 
-local BrTab = Window:CreateTab("MM2", nil)
-local BrSection = BrTab:CreateSection("Murder Mystery 2")
+local BrTab = Window:CreateTab("Flee The Facility", nil)
+local BrSection = BrTab:CreateSection("Flee The Facility")
 
 local Button = BrTab:CreateButton({
    Name = "YARHM",
@@ -546,9 +546,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Joystickplays/psychic
 })
 
 local Button = BrTab:CreateButton({
-   Name = "Ez Hub",
+   Name = "unfair hub",
    Callback = function()
-loadstring(game:HttpGet("https://rawscripts.net/raw/Ez-Hub_168"))()
+loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-unfair-Hub-3936"))()
    end,
 })
 
@@ -560,9 +560,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/nojon353/InfiniteCoin
 })
 
 local Button = BrTab:CreateButton({
-   Name = "Mars Hub",
+   Name = "Script Hub",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/1andonlymars/MarsHub/main/MM2"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scripthubekitten/SCRIPTHUBV3/main/SCRIPTHUBV3", true))()
    end,
 })
 
