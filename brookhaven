@@ -660,6 +660,7 @@ loadstring(game:HttpGet(('https://pastefy.app/S7xNJSXX/raw'),true))()
    end,
 })
 
+
 local Button = ServerTab:CreateButton({
    Name = "Rejoin",
    Callback = function()
@@ -670,4 +671,83 @@ loadstring(game:HttpGet("https://pastebin.com/raw/wQ6GFfeG"))()
 local Button = ServerTab:CreateButton({
    Name = "Server Hop",
    Callback = function()
-loadstring(game:HttpGet("https://p
+loadstring(game:HttpGet("https://pastebin.com/raw/wQ6GFfeG"))()
+   end,
+})
+
+local NewsTab = Window:CreateTab("News and Changelog", nil)
+local NewsSection = NewsTab:CreateSection("News")
+
+local Label = NewsTab:CreateLabel("Script officially released on scriptblox.com!", "rewind")
+local ChangeSection = NewsTab:CreateSection("Changelog")
+
+local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content = "Added new color of script, updated Server Tab, added changelog"})
+local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
+
+local CameraTab = Window:CreateTab("Camera", nil)
+local CameraSection = AdminTab:CreateSection("Camera")
+
+local Slider = CameraTab:CreateSlider({
+   Name = "Field of view",
+   Range = {45, 120},
+   Increment = 1,
+   Suffix = "field of view",
+   CurrentValue = 70,
+   Flag = "sliderfov", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(value)
+        tweenService:Create(camera, TweenInfo.new(0.6, Enum.EasingStyle.Exponential), { FieldOfView = value }):Play()
+   end,
+})
+
+local VisualTab = Window:CreateTab("Visual", nil)
+local VisualSection = VisualTab:CreateSection("Visual")
+
+local Toggle = VisualTab:CreateToggle({
+	Name = "Pink Glasses",
+	CurrentValue = false,
+	Flag = "universal_pink_glasses",
+	Callback=function(state)
+		if state then
+			game.Lighting.Ambient=Color3.fromRGB(225, 20, 147)
+			game.Lighting.OutdoorAmbient=Color3.fromRGB(225, 20, 147)
+		else
+			game.Lighting.Ambient=ambient
+			game.Lighting.OutdoorAmbient=outdoor_ambient
+		end
+	end,
+})
+
+local Toggle = VisualTab:CreateToggle({
+	Name = "Remove Fog",
+	CurrentValue = false,
+	Flag = "universal_remove_fog",
+	Callback = function(state)
+		if state then
+			game.Lighting.FogStart=9e9
+		else
+			game.Lighting.FogStart=fogstart
+		end
+	end,
+})
+
+local Toggle = VisualTab:CreateToggle({
+	Name = "Full Brightness",
+	CurrentValue = false,
+	Flag = "universal_full_brightness",
+	Callback = function(state)
+		if state then
+			game.Lighting.Brightness=2
+			game.Lighting.ClockTime=14
+			game.Lighting.GlobalShadows=false
+			game.Lighting.OutdoorAmbient=Color3.fromRGB(128, 128, 128)
+		else
+			game.Lighting.Brightness=brightness
+			game.Lighting.ClockTime=clocktime
+			game.Lighting.GlobalShadows=shadows
+			game.Lighting.OutdoorAmbient=outdoor_ambient
+		end
+	end,
+})
+
+local GameTab = Window:CreateTab("Game", nil)
+local GameSection = GameTab:CreateSection("Game")
