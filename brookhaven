@@ -96,7 +96,7 @@ local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
 
 
 local Window = Rayfield:CreateWindow({
-   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.00 | Executor: "..identifyexecutor(),
+   Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.00 | Executor: "..identifyexecutor().." Brookhaven RP,
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "DarkBlue",
