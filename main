@@ -724,20 +724,6 @@ local Toggle = VisualTab:CreateToggle({
 local GameTab = Window:CreateTab("Game", nil)
 local GameSection = GameTab:CreateSection("Game")
 
-if game:GetService("Players").sashaboxexe then
-        Rayfield:Notify({
-   Title = "Owner of AntiOder Hub is on your server!",
-   Content = "Nickname: sashaboxexe",
-   Duration = 5,
-   Image = nil,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
 
 
 
