@@ -19,10 +19,14 @@ fogstart=game.Lighting.FogStart
 brightness=game.Lighting.Brightness
 local clocktime=game.Lighting.ClockTime
 shadows=game.Lighting.GlobalShadows
-local ESP=Instance.new('Highlight')
-ESP.Name='Antioder Hub ESP'
-ESP.DepthMode=Enum.HighlightDepthMode.AlwaysOnTop
-ESP.FillTransparency=999
+mouse=game.Players.LocalPlayer:GetMouse()
+camera=game.Workspace.CurrentCamera
+UserInputService=game:GetService('UserInputService')
+VirtualInputManager=game:GetService('VirtualInputManager')
+RunService=game:GetService('RunService')
+player=game.Players.LocalPlayer
+walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
 
 
 -- SPEED WALK, JUMP POWER, INFINITE JUMP
@@ -125,14 +129,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-mouse=game.Players.LocalPlayer:GetMouse()
-camera=game.Workspace.CurrentCamera
-UserInputService=game:GetService('UserInputService')
-VirtualInputManager=game:GetService('VirtualInputManager')
-RunService=game:GetService('RunService')
-player=game.Players.LocalPlayer
-walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
-jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
+
 
 local ABOUTTab = Window:CreateTab("Home", nil) -- Title, Image
 local ABOUTSection = ABOUTTab:CreateSection("About script")
