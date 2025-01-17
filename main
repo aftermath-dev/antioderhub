@@ -8,16 +8,8 @@
 
 
 
-mouse=game.Players.LocalPlayer:GetMouse()
-camera=game.Workspace.CurrentCamera
-UserInputService=game:GetService('UserInputService')
-VirtualInputManager=game:GetService('VirtualInputManager')
-RunService=game:GetService('RunService')
-player=game.Players.LocalPlayer
-walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
-jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
-autoez=false
 
+autoez=false
 loop_teleport=false
 aimbot=false
 aim=false
@@ -132,6 +124,15 @@ local Window = Rayfield:CreateWindow({
       Key = {"https://pastebin.com/raw/texBrQXF"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
+
+mouse=game.Players.LocalPlayer:GetMouse()
+camera=game.Workspace.CurrentCamera
+UserInputService=game:GetService('UserInputService')
+VirtualInputManager=game:GetService('VirtualInputManager')
+RunService=game:GetService('RunService')
+player=game.Players.LocalPlayer
+walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
 
 local ABOUTTab = Window:CreateTab("Home", nil) -- Title, Image
 local ABOUTSection = ABOUTTab:CreateSection("About script")
