@@ -1,3 +1,4 @@
+--AntiOder hub is Open Source Project! Enjoy!
 local mouse=game.Players.LocalPlayer:GetMouse()
 camera=game.Workspace.CurrentCamera
 UserInputService=game:GetService('UserInputService')
@@ -7,6 +8,7 @@ player=game.Players.LocalPlayer
 walkspeed_value=game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
 jumppower_value=game.Players.LocalPlayer.Character.Humanoid.JumpPower
 autoez=false
+
 loop_teleport=false
 aimbot=false
 aim=false
