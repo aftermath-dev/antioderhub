@@ -1,4 +1,13 @@
 --AntiOder hub is Open Source Project! Enjoy!
+
+
+
+
+
+
+
+
+
 local mouse=game.Players.LocalPlayer:GetMouse()
 camera=game.Workspace.CurrentCamera
 UserInputService=game:GetService('UserInputService')
