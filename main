@@ -99,7 +99,7 @@ local Window = Rayfield:CreateWindow({
    Name = os.date("%H")..":"..os.date("%M").." | AntiOder Hub 2.01 | Executor: "..identifyexecutor(),
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
-   Theme = "DarkBlue",
+   Theme = "Default",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = nil, -- Create a custom folder for your hub/game
@@ -141,7 +141,6 @@ Rayfield:Notify({
 })
 
 local Label = ABOUTTab:CreateLabel("ANTIODER HUB CREATED BY AFTERMATH WITH LOVE.")
-local Label = ABOUTTab:CreateLabel("Supported Game: ❌")
 
 
 
@@ -658,7 +657,7 @@ local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content 
 local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
 
 local CameraTab = Window:CreateTab("Camera", nil)
-local CameraSection = AdminTab:CreateSection("Camera")
+local CameraSection = CreateTab:CreateSection("Camera")
 
 local Slider = CameraTab:CreateSlider({
    Name = "Field of view",
@@ -722,8 +721,25 @@ local Toggle = VisualTab:CreateToggle({
 	end,
 })
 
-local GameTab = Window:CreateTab("Game", nil)
-local GameSection = GameTab:CreateSection("Game")
+local GameTab = Window:CreateTab("Games", nil)
+local GameSection = GameTab:CreateSection("Games")
+
+local Label = GameTab:CreateLabel("Wait!", "rewind")
+
+local WindowTab = Window:CreateTab("Window", nil)
+local WindowSection = WindowTab:CreateSection("Window")
+
+local Dropdown = Tab:CreateDropdown({
+   Name = "Theme",
+   Options = {"'Default'","'DarkBlue'","'AmberGlow'","'Amethyst'","'Bloom'","'Green'","'Light'","'Ocean'","'Serenity'"},
+   CurrentOption = {"'Default'"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Option)
+   Window.ModifyTheme(Option)
+   end,
+})
+
 
 
 
