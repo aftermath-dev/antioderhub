@@ -271,24 +271,7 @@ local Toggle = FuncTab:CreateToggle({
 		loop_teleport=state
 	end,
 })
-local Input = FuncTab:CreateInput({
-	Name = "Teleport to Player",
-	PlaceholderText = "Nickname",
-	RemoveTextAfterFocusLost = false,
-	Callback = function(i)
-		for _,v in pairs(game.Players:GetPlayers()) do
-			if v.Name:lower():sub(1, #i)==i:lower() or v.DisplayName:lower():sub(1, #i)==i:lower() then
-				while true do
-					player.Character.HumanoidRootPart.CFrame=v.Character.HumanoidRootPart.CFrame
-					if not loop_teleport then
-						break
-					end
-					wait()
-				end
-			end
-		end
-       end,
-})
+
 
 
 
