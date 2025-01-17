@@ -657,7 +657,7 @@ local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content 
 local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
 
 local CameraTab = Window:CreateTab("Camera", nil)
-local CameraSection = CreateTab:CreateSection("Camera")
+local CameraSection = CameraTab:CreateSection("Camera")
 
 local Slider = CameraTab:CreateSlider({
    Name = "Field of view",
