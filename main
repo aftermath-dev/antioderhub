@@ -666,9 +666,7 @@ local Toggle = VisualTab:CreateToggle({
 
 
 
-local GameSection = GameTab:CreateSection("Games")
 
-local Label = GameTab:CreateLabel("Wait!", "rewind")
 
 
 local SexTab = Window:CreateTab("S*x", nil)
