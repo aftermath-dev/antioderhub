@@ -59,7 +59,7 @@ end)
 
 
 local Window = Rayfield:CreateWindow({
-   Name = AntiOder Hub 2.01 | Executor: "..identifyexecutor(),
+   Name = "AntiOder Hub 2.01 | Executor: "..identifyexecutor(),
    LoadingTitle = "waiting the script loading",
    LoadingSubtitle = "by aftr.lua",
    Theme = "Amber Glow",
