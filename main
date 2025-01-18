@@ -262,17 +262,7 @@ local Toggle = FuncTab:CreateToggle({
 		end
 	end,
 })
-local Toggle = FuncTab:CreateToggle({
-	Name = "Aimbot",
-	CurrentValue = false,
-	Flag = "universal_aimbot",
-	Callback = function(state)
-		if state then
-                        loadstring(game:HttpGet("https://pastebin.com/raw/dxrJ8H5q"))()
-                else
-                    loadstring(game:HttpGet("https://pastebin.com/raw/DY5kQgLJ"))()
-	end,
-})
+
 local Func1Section = FuncTab:CreateSection('Teleport')
 local Toggle = FuncTab:CreateToggle({
 	Name = "Loop Teleport",
