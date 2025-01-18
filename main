@@ -708,7 +708,7 @@ loadstring(game:HttpGet("https://pastefy.app/wa3v2Vgm/raw"))()
    end,
 })
 
-local Sex1Section = WindowTab:CreateSection("S*x R15")
+local Sex1Section = SexTab:CreateSection("S*x R15")
 
 local Button = SexTab:CreateButton({
    Name = "Bang V2",
