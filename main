@@ -262,6 +262,151 @@ local Toggle = FuncTab:CreateToggle({
 		end
 	end,
 })
+local Toggle = FuncTab:CreateToggle({
+	Name = "Aimbot",
+	CurrentValue = false,
+	Flag = "universal_aimbot",
+	Callback = function(state)
+		if state then
+		          _G.ScriptActive = true -- Définir la variable pour indiquer que le script est actif
+local Config = {
+    Fov = 120,
+    Smoothness = 0.1,
+    Prediction = 0.2,
+    TargetPart = "Head",
+    TeamCheck = false,
+    WallCheck = false,
+    LockDistance = 1000,
+    FovColor = Color3.fromRGB(255, 255, 255)
+}
+
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local Camera = workspace.CurrentCamera
+
+local fovCircle = Drawing.new("Circle")
+fovCircle.Visible = true
+fovCircle.Thickness = 1
+fovCircle.Color = Config.FovColor
+fovCircle.Filled = false
+fovCircle.Radius = Config.Fov
+fovCircle.Position = Camera.ViewportSize / 2
+
+local indicator = Drawing.new("Triangle")
+indicator.Visible = false
+indicator.Thickness = 1
+indicator.Color = Color3.fromRGB(0, 255, 0) -- Couleur de l'indicateur
+indicator.PointA = Vector2.new(0, 0)
+indicator.PointB = Vector2.new(5, 10)
+indicator.PointC = Vector2.new(-5, 10)
+
+local function Health(player)
+    local character = player.Character
+    return character and character:FindFirstChild("Humanoid") and character.Humanoid.Health > 0
+end
+
+local function TeamCheck(player)
+    return Config.TeamCheck and player.Team == Players.LocalPlayer.Team
+end
+
+local function WallCheck(player)
+    if not Config.WallCheck then return true end
+
+    local character = player.Character
+    if character and character:FindFirstChild(Config.TargetPart) then
+        local targetPart = character[Config.TargetPart]
+        local origin = Camera.CFrame.Position
+        local direction = (targetPart.Position - origin).Unit
+        local raycastParams = RaycastParams.new()
+        raycastParams.FilterDescendantsInstances = {Players.LocalPlayer.Character, player.Character}
+        raycastParams.FilterType = Enum.RaycastFilterType.Blacklist
+
+        local raycastResult = workspace:Raycast(origin, direction * Config.LockDistance, raycastParams)
+
+        return raycastResult == nil
+    end
+    return false
+end
+
+local function Closest()
+    local closest, minDist = nil, math.huge
+    local screenCenter = Camera.ViewportSize / 2
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= Players.LocalPlayer and Health(player) and not TeamCheck(player) and WallCheck(player) then
+            local targetPart = player.Character and player.Character:FindFirstChild(Config.TargetPart)
+            if targetPart then
+                local screenPos, onScreen = Camera:WorldToViewportPoint(targetPart.Position)
+                local distance = (Vector2.new(screenPos.X, screenPos.Y) - screenCenter).Magnitude
+
+                if onScreen and distance < minDist and distance < Config.Fov then
+                    minDist = distance
+                    closest = player
+                end
+            end
+        end
+    end
+
+    return closest
+end
+
+local function Predict(position, velocity)
+    return position + velocity * Config.Prediction
+end
+
+local function Aim(target)
+    if target then
+        local predictedPos = Predict(target.Position, target.Velocity)
+        local direction = (predictedPos - Camera.CFrame.Position).Unit
+        Camera.CFrame = Camera.CFrame:Lerp(CFrame.new(Camera.CFrame.Position, Camera.CFrame.Position + direction), Config.Smoothness)
+    end
+end
+
+local function UpdateFov()
+    fovCircle.Position = Camera.ViewportSize / 2
+end
+
+local function UpdateIndicator(target)
+    if target then
+        local screenPos, onScreen = Camera:WorldToViewportPoint(target.Position)
+        if onScreen then
+            indicator.Position = Vector2.new(screenPos.X, screenPos.Y)
+            indicator.Visible = true
+        else
+            indicator.Visible = false
+        end
+    else
+        indicator.Visible = false
+    end
+end
+
+RunService.RenderStepped:Connect(function()
+    UpdateFov()
+    local closest = Closest()
+
+    if closest and closest.Character:FindFirstChild(Config.TargetPart) then
+        Aim(closest.Character[Config.TargetPart])
+        UpdateIndicator(closest.Character[Config.TargetPart])
+    else
+        indicator.Visible = false
+    end
+
+
+
+
+                else
+local UserInputService = game:GetService("UserInputService")
+UserInputService.InputBegan:Connect(function(input)
+        _G.ScriptActive = false
+        fovCircle.Visible = false
+        indicator.Visible = false
+        fovCircle:Destroy() -- Utiliser Destroy ici
+        indicator:Destroy() -- Utiliser Destroy ici
+        print("venom")
+    end
+
+	end,
+})
 local Func1Section = FuncTab:CreateSection('Teleport')
 local Toggle = FuncTab:CreateToggle({
 	Name = "Loop Teleport",
