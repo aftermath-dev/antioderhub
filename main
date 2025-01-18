@@ -670,7 +670,7 @@ local Toggle = VisualTab:CreateToggle({
 
 
 local SexTab = Window:CreateTab("S*x", nil)
-local SexSection = WindowTab:CreateSection("S*x R6")
+local SexSection = SexTab:CreateSection("S*x R6")
 local Button = SexTab:CreateButton({
    Name = "Bang V2",
    Callback = function()
