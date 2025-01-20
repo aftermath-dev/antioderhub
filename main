@@ -423,57 +423,7 @@ local Toggle = FuncTab:CreateToggle({
 	end,
 })
 
-local Input = FuncTab:CreateInput({
-   Name = "Nickname for view",
-   CurrentValue = "",
-   PlaceholderText = "Nickname",
-   RemoveTextAfterFocusLost = true,
-   Flag = "Input1",
-   Callback = function(value)
-   selectedViewPlayer = findPlayerByPartialNameOrNickname(value);
-		if selectedViewPlayer then
-			print(LUAOBFUSACTOR_DECRYPT_STR_0("\245\16\243\29\62\208\13\180\25\52\220\16\250\8\40\222\27\251\70\122", "\90\191\127\148\124") .. selectedViewPlayer[LUAOBFUSACTOR_DECRYPT_STR_0("\86\134\35\18", "\119\24\231\78")]);
-			if viewEnabled then
-				toggleView(false);
-				toggleView(true);
-			end
-		else
-			print(LUAOBFUSACTOR_DECRYPT_STR_0("\172\40\171\66\201\77\81\136\34\162\75\216\79\3\194\40\171\73\211\78\5\144\44\161\69\156\67\30\143\109\160\89\207\69\81\140\34\168\79\156\79\4\194\44\181\79\208\73\21\141\99", "\113\226\77\197\42\188\32"));
-			if viewEnabled then
-				toggleView(false);
-			end
-		end
-   end,
-})
 
-
-local Toggle = FuncTab:CreateToggle({
-	Name = "View",
-	CurrentValue = false,
-	Flag = "universal_infinite_jump",
-	Callback = function(toggleView)
-		viewEnabled = enabled;
-		toggleView(enabled);
-	end,
-})
-
-		if (selectedViewPlayer == player) then
-			selectedViewPlayer = nil;
-			if viewEnabled then
-				toggleView(false);
-		end
-	end);
-	local function maintainView()
-		while wait() do
-			if (viewEnabled and selectedViewPlayer) then
-				local player = selectedViewPlayer;
-				if (player and (game[LUAOBFUSACTOR_DECRYPT_STR_0("\115\69\220\126\35\84\75\205\112", "\80\36\42\174\21")][LUAOBFUSACTOR_DECRYPT_STR_0("\109\5\37\104\75\30\35\89\79\29\50\104\79", "\26\46\112\87")][LUAOBFUSACTOR_DECRYPT_STR_0("\154\34\166\113\173\190\118\161\187\41\174\119\171", "\212\217\67\203\20\223\223\37")] ~= player[LUAOBFUSACTOR_DECRYPT_STR_0("\153\133\169\192\187\142\188\215\168", "\178\218\237\200")])) then
-					game[LUAOBFUSACTOR_DECRYPT_STR_0("\129\186\244\219\165\165\231\211\179", "\176\214\213\134")][LUAOBFUSACTOR_DECRYPT_STR_0("\215\184\164\198\173\88\77\215\172\187\209\186\87", "\57\148\205\214\180\200\54")][LUAOBFUSACTOR_DECRYPT_STR_0("\49\252\56\49\100\19\206\32\54\124\23\254\33", "\22\114\157\85\84")] = player[LUAOBFUSACTOR_DECRYPT_STR_0("\231\195\18\214\92\245\188\193\217", "\200\164\171\115\164\61\150")];
-				end
-			end
-		end
-	end
-	spawn(maintainView);
 
 
 
@@ -946,7 +896,65 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
 
 local BrTab = Window:CreateTab("Brookhaven", nil)
 
-
+local selectedKillAdvancedPlayer = nil;
+	local couchEquipped = false;
+	local function killAdvancedPlayer()
+		if selectedKillAdvancedPlayer then
+			local player = game[LUAOBFUSACTOR_DECRYPT_STR_0("\109\122\114\5\118\185\94", "\45\61\22\19\124\19\203")]:FindFirstChild(selectedKillAdvancedPlayer);
+			if player then
+				local backpack = game[LUAOBFUSACTOR_DECRYPT_STR_0("\241\30\12\236\7\98\170", "\217\161\114\109\149\98\16")][LUAOBFUSACTOR_DECRYPT_STR_0("\62\47\59\125\176\68\30\33\33\121\174", "\20\114\64\88\28\220")][LUAOBFUSACTOR_DECRYPT_STR_0("\19\0\209\191\232\209\190\58", "\221\81\97\178\212\152\176")];
+				if (backpack and not couchEquipped) then
+					local couch = backpack:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\238\232\8\248\18", "\122\173\135\125\155"));
+					if couch then
+						game[LUAOBFUSACTOR_DECRYPT_STR_0("\180\205\1\160\58\35\219", "\168\228\161\96\217\95\81")][LUAOBFUSACTOR_DECRYPT_STR_0("\247\222\45\93\35\103\215\208\55\89\61", "\55\187\177\78\60\79")][LUAOBFUSACTOR_DECRYPT_STR_0("\14\198\94\249\71\204\148\40\220", "\224\77\174\63\139\38\175")][LUAOBFUSACTOR_DECRYPT_STR_0("\172\84\85\47\138\78\81\42", "\78\228\33\56")]:EquipTool(couch);
+						couchEquipped = true;
+					else
+						print("O item 'Couch' não foi encontrado no seu inventário.");
+					end
+				end
+				while true do
+					game[LUAOBFUSACTOR_DECRYPT_STR_0("\254\114\179\26\128\220\109", "\229\174\30\210\99")][LUAOBFUSACTOR_DECRYPT_STR_0("\55\226\133\80\225\13\53\26\244\131\67", "\89\123\141\230\49\141\93")][LUAOBFUSACTOR_DECRYPT_STR_0("\208\121\247\30\17\73\231\116\228", "\42\147\17\150\108\112")][LUAOBFUSACTOR_DECRYPT_STR_0("\39\179\32\126\233\231\6\162\31\112\232\252\63\167\63\107", "\136\111\198\77\31\135")][LUAOBFUSACTOR_DECRYPT_STR_0("\33\47\181\87\176\225", "\201\98\105\199\54\221\132\119")] = player[LUAOBFUSACTOR_DECRYPT_STR_0("\154\4\130\51\3\54\184\188\30", "\204\217\108\227\65\98\85")][LUAOBFUSACTOR_DECRYPT_STR_0("\118\214\248\228\34\207\87\199\199\234\35\212\110\194\231\241", "\160\62\163\149\133\76")][LUAOBFUSACTOR_DECRYPT_STR_0("\245\134\31\46\206\211", "\163\182\192\109\79")];
+					wait(0);
+					if (player[LUAOBFUSACTOR_DECRYPT_STR_0("\23\46\1\210\244\55\50\5\210", "\149\84\70\96\160")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\16\19\0\236\54\9\4\233", "\141\88\102\109")) and player[LUAOBFUSACTOR_DECRYPT_STR_0("\144\91\203\98\27\62\65\196\161", "\161\211\51\170\16\122\93\53")][LUAOBFUSACTOR_DECRYPT_STR_0("\211\187\191\41\245\161\187\44", "\72\155\206\210")][LUAOBFUSACTOR_DECRYPT_STR_0("\117\127\85\26\3\71\104\64", "\83\38\26\52\110")]) then
+						player[LUAOBFUSACTOR_DECRYPT_STR_0("\123\31\38\84\89\20\51\67\74", "\38\56\119\71")][LUAOBFUSACTOR_DECRYPT_STR_0("\219\250\85\215\43\89\250\235\106\217\42\66\195\238\74\194", "\54\147\143\56\182\69")][LUAOBFUSACTOR_DECRYPT_STR_0("\245\167\237\72\210\211", "\191\182\225\159\41")] = CFrame.new(0, 0, 0);
+						wait(0);
+						game[LUAOBFUSACTOR_DECRYPT_STR_0("\27\30\41\76\142\149\209", "\162\75\114\72\53\235\231")][LUAOBFUSACTOR_DECRYPT_STR_0("\160\51\71\227\95\50\128\61\93\231\65", "\98\236\92\36\130\51")][LUAOBFUSACTOR_DECRYPT_STR_0("\135\17\13\168\68\171\161\53\182", "\80\196\121\108\218\37\200\213")][LUAOBFUSACTOR_DECRYPT_STR_0("\40\102\15\126\69\1\131\4\65\13\112\95\62\139\18\103", "\234\96\19\98\31\43\110")][LUAOBFUSACTOR_DECRYPT_STR_0("\37\57\64\198\161\119", "\235\102\127\50\167\204\18")] = CFrame.new(0, 0, 0);
+						wait(0);
+						game[LUAOBFUSACTOR_DECRYPT_STR_0("\96\173\244\58\65\60\67", "\78\48\193\149\67\36")][LUAOBFUSACTOR_DECRYPT_STR_0("\28\17\131\25\77\0\18\129\1\68\34", "\33\80\126\224\120")][LUAOBFUSACTOR_DECRYPT_STR_0("\207\160\2\214\93\239\188\6\214", "\60\140\200\99\164")][LUAOBFUSACTOR_DECRYPT_STR_0("\175\225\9\39\172\136\253\0\20\173\136\224\52\39\176\147", "\194\231\148\100\70")][LUAOBFUSACTOR_DECRYPT_STR_0("\101\106\211\162\251\205", "\168\38\44\161\195\150")] = CFrame.new(505, -75, 143);
+						break;
+					end
+				end
+				if couchEquipped then
+					local backpack = game[LUAOBFUSACTOR_DECRYPT_STR_0("\176\240\131\111\53\250\165", "\118\224\156\226\22\80\136\214")][LUAOBFUSACTOR_DECRYPT_STR_0("\110\225\90\129\78\222\85\129\91\235\75", "\224\34\142\57")][LUAOBFUSACTOR_DECRYPT_STR_0("\252\166\198\214\99\240\94\5", "\110\190\199\165\189\19\145\61")];
+					if backpack then
+						local couch = backpack:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\249\228\98\235\131", "\167\186\139\23\136\235"));
+						if couch then
+							couch[LUAOBFUSACTOR_DECRYPT_STR_0("\42\180\154\8\20\161", "\109\122\213\232")] = nil;
+							couchEquipped = false;
+						end
+					end
+				end
+			else
+				print("Jogador não encontrado.");
+			end
+		else
+			print("Nenhum jogador selecionado para o Bring Avançado.");
+		end
+	end
+	local killAdvancedPlayerList = {};
+	for _, player in ipairs(game[LUAOBFUSACTOR_DECRYPT_STR_0("\222\251\163\41\235\229\177", "\80\142\151\194")]:GetPlayers()) do
+		table.insert(killAdvancedPlayerList, player.Name);
+	end
+local Dropdown = BrTab:CreateDropdown({
+   Name = "Select player for bring",
+   Options = {"Select",killAdvancedPlayerList},
+   CurrentOption = {"Select"},
+   MultipleOptions = false,
+   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(playerName)
+              selectedKillAdvancedPlayer = playerName;
+   end,
+})
 
 
 
