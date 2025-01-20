@@ -904,7 +904,7 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\27\184\146\76\0\246\201\19
    end,
 })
 
-local BrSection = BrTab:CreateSection("illusion")
+local Br1Section = BrTab:CreateSection("Skins")
 local Button = BrTab:CreateButton({
    Name = "Assassin",
    Callback = function()
@@ -925,6 +925,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
+local Br2Section = BrTab:CreateSection("See the Brookhaven")
 
 local Button = BrTab:CreateButton({
    Name = "See the Brookhaven",
@@ -941,6 +942,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
+local Br3Section = BrTab:CreateSection("Accessories")
 
 local Button = BrTab:CreateButton({
    Name = "Headless",
@@ -958,6 +960,7 @@ print("wait the update bro")
    end,
 })
 
+local Br4Section = BrTab:CreateSection("House")
 local a = 0;
 local Input = BrTab:CreateInput({
    Name = "House Number",
@@ -1020,6 +1023,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
+local Br5Section = BrTab:CreateSection("Size of Avatar")
 local Button = BrTab:CreateButton({
    Name = "Super Small Avatar (fly for move)",
    Callback = function()
@@ -1048,6 +1052,7 @@ local Button = BrTab:CreateButton({
    end,
 })
 
+local Br6Section = BrTab:CreateSection("Troll")
 local Button = BrTab:CreateButton({
    Name = "Fling GUI (use a sofa)",
    Callback = function()
@@ -1220,6 +1225,7 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\177\253\231\214\170\179\18
    end,
 })
 
+local Br7Section = BrTab:CreateSection("Anti functions")
 local Button = BrTab:CreateButton({
    Name = "Antifling",
    Callback = function()
@@ -1234,6 +1240,7 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\213\169\250\198\48\21\146\
    end,
 })
 
+local Br8Section = BrTab:CreateSection("Boost Game")
 local Button = BrTab:CreateButton({
    Name = "Remove Ping",
    Callback = function()
@@ -1241,6 +1248,7 @@ loadstring(game:HttpGet(LUAOBFUSACTOR_DECRYPT_STR_0("\213\169\250\198\48\21\146\
    end,
 })
 
+local Br9Section = BrTab:CreateSection("Teleport in Place")
 local Button = BrTab:CreateButton({
    Name = "Go to spawn",
    Callback = function()
@@ -1279,6 +1287,7 @@ print("so soon")
    end,
 })
 
+local Br10Section = BrTab:CreateSection("Car music (need a gamepass)")
 local musictextbox = BrTab:CreateInput({
    Name = "Song Id (car)",
    CurrentValue = "",
