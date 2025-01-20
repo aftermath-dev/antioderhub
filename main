@@ -1261,6 +1261,47 @@ local Button = BrTab:CreateButton({
 game[LUAOBFUSACTOR_DECRYPT_STR_0("\57\9\30\47\74\186\229", "\150\105\101\127\86\47\200")][LUAOBFUSACTOR_DECRYPT_STR_0("\226\253\240\180\203\240\194\243\234\176\213", "\160\174\146\147\213\167")][LUAOBFUSACTOR_DECRYPT_STR_0("\99\236\27\86\13\66\84\225\8", "\33\32\132\122\36\108")][LUAOBFUSACTOR_DECRYPT_STR_0("\145\1\127\74\114\182\29\118\121\115\182\0\66\74\110\173", "\28\217\116\18\43")][LUAOBFUSACTOR_DECRYPT_STR_0("\241\113\196\85\221\171", "\92\178\55\182\52\176\206")] = CFrame.new(235, 5, 812);
    end,
 })
+local function teleportToCriminal()
+		game[LUAOBFUSACTOR_DECRYPT_STR_0("\42\57\112\12\31\39\98", "\117\122\85\17")][LUAOBFUSACTOR_DECRYPT_STR_0("\164\224\41\69\170\237\132\238\51\65\180", "\189\232\143\74\36\198")][LUAOBFUSACTOR_DECRYPT_STR_0("\223\162\11\92\214\9\232\175\24", "\106\156\202\106\46\183")][LUAOBFUSACTOR_DECRYPT_STR_0("\21\12\118\50\36\50\16\127\1\37\50\13\75\50\56\41", "\74\93\121\27\83")][LUAOBFUSACTOR_DECRYPT_STR_0("\94\157\244\127\112\190", "\30\29\219\134")] = CFrame.new(-119, -28, 235);
+end
+local Button = BrTab:CreateButton({
+   Name = "Criminal",
+   Callback = function()
+teleportToCriminal();
+   end,
+})
+
+
+local Button = BrTab:CreateButton({
+   Name = "soon",
+   Callback = function()
+print("so soon")
+   end,
+})
+
+local musictextbox = BrTab:CreateInput({
+   Name = "Song Id (car)",
+   CurrentValue = "",
+   PlaceholderText = "Id",
+   RemoveTextAfterFocusLost = false,
+   Flag = "Input1",
+   Callback = function(value)
+       musicId = value;
+   end,
+})
+
+local Button = BrTab:CreateButton({
+   Name = "Play Id",
+   Callback = function()
+                if (musicId and (musicId ~= "")) then
+			local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\108\27\88\54\177\197\238\53\93\0\118\40\171\194\234\34\89\10\79", "\118\60\114\59\93\216\171\137"),[2]=musicId};
+			game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\96\204\84\232\181\81\200\80\225\184\97\221\75\246\189\85\204", "\220\50\169\36\132"))[LUAOBFUSACTOR_DECRYPT_STR_0("\195\162", "\209\145\231\108")]:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\8\17\4\12\193\192\48\8\50\43\12\137\215", "\66\57\65\104\109\184\165")):FireServer(unpack(args));
+		else
+			print(LUAOBFUSACTOR_DECRYPT_STR_0("\243\69", "\133\221\107\154\62"));
+		end
+   end,
+})
+
 
 
 
