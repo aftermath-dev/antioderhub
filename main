@@ -427,7 +427,7 @@ local Input = FuncTab:CreateInput({
    Name = "Nickname for view",
    CurrentValue = "",
    PlaceholderText = "Nickname",
-   RemoveTextAfterFocusLost = false,
+   RemoveTextAfterFocusLost = true,
    Flag = "Input1",
    Callback = function(value)
    selectedViewPlayer = findPlayerByPartialNameOrNickname(value);
@@ -446,16 +446,34 @@ local Input = FuncTab:CreateInput({
    end,
 })
 
+
 local Toggle = FuncTab:CreateToggle({
 	Name = "View",
 	CurrentValue = false,
 	Flag = "universal_infinite_jump",
-	Callback = function(state)
+	Callback = function(toggleView)
 		viewEnabled = enabled;
 		toggleView(enabled);
 	end,
 })
 
+		if (selectedViewPlayer == player) then
+			selectedViewPlayer = nil;
+			if viewEnabled then
+				toggleView(false);
+		end
+	end);
+	local function maintainView()
+		while wait() do
+			if (viewEnabled and selectedViewPlayer) then
+				local player = selectedViewPlayer;
+				if (player and (game[LUAOBFUSACTOR_DECRYPT_STR_0("\115\69\220\126\35\84\75\205\112", "\80\36\42\174\21")][LUAOBFUSACTOR_DECRYPT_STR_0("\109\5\37\104\75\30\35\89\79\29\50\104\79", "\26\46\112\87")][LUAOBFUSACTOR_DECRYPT_STR_0("\154\34\166\113\173\190\118\161\187\41\174\119\171", "\212\217\67\203\20\223\223\37")] ~= player[LUAOBFUSACTOR_DECRYPT_STR_0("\153\133\169\192\187\142\188\215\168", "\178\218\237\200")])) then
+					game[LUAOBFUSACTOR_DECRYPT_STR_0("\129\186\244\219\165\165\231\211\179", "\176\214\213\134")][LUAOBFUSACTOR_DECRYPT_STR_0("\215\184\164\198\173\88\77\215\172\187\209\186\87", "\57\148\205\214\180\200\54")][LUAOBFUSACTOR_DECRYPT_STR_0("\49\252\56\49\100\19\206\32\54\124\23\254\33", "\22\114\157\85\84")] = player[LUAOBFUSACTOR_DECRYPT_STR_0("\231\195\18\214\92\245\188\193\217", "\200\164\171\115\164\61\150")];
+				end
+			end
+		end
+	end
+	spawn(maintainView);
 
 
 
@@ -925,6 +943,10 @@ local Button = SexTab:CreateButton({
 loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
    end,
 })
+
+local BrTab = Window:CreateTab("Brookhaven", nil)
+
+
 
 
 
