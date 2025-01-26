@@ -75,6 +75,13 @@ setclipboard(tostring(copy))
    end,
 })
 
+local Button = ABOUTTab:CreateButton({
+   Name = "Phantom Hub",
+   Callback = function()
+loadstring(game:HttpGet("https://phantom-hub-script.github.io/phantomhub.lua"))()
+   end,
+})
+
 
 
 
