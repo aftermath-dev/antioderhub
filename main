@@ -473,39 +473,7 @@ local Toggle = FuncTab:CreateToggle({
 	end,
 })
 
-local gotoPlayerList = {}
-for _, player in ipairs(game.Players:GetPlayers()) do
-    table.insert(gotoPlayerList, player.Name)
-end
 
-local selectedGotoPlayer = nil
-
-local Dropdown = Tab:CreateDropdown({
-   Name = "Choose person for teleport",
-   Options = gotoPlayerList,
-   CurrentOption = {""},
-   MultipleOptions = false,
-   Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(playerName)
-            selectedGotoPlayer = playerName
-   end,
-})
-
-local Button = FuncTab:CreateButton({
-   Name = "Teleport to selected person",
-   Callback = function()
-         if selectedGotoPlayer then
-            local player = game.Players:FindFirstChild(selectedGotoPlayer)
-            if player then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame
-            else
-                print("Jogador não encontrado.")
-            end
-        else
-            print("Nenhum jogador selecionado para o Goto.")
-        end
-   end,
-})
 
 local AdminTab = Window:CreateTab("Admin Scripts and More", nil)
 local AdminSection = AdminTab:CreateSection("Admin Scripts and More")
