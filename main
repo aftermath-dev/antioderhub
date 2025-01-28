@@ -123,7 +123,7 @@ local camera = workspace.CurrentCamera
 local tweenService = game:GetService("TweenService")
 local copy = "https://t.me/aftermathscript"
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-local Sense = loadstring(game:HttpGet('https://sirius.menu/sense'))()
+local Sense = loadstring(game:HttpGet('https://raw.githubusercontent.com/jensonhirst/Sirius/request/library/sense/source.lua'))()
 
 autoez=false
 loop_teleport=false
