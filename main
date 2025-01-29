@@ -405,12 +405,6 @@ local function toggleView(enabled)
                 characterAddedConnection = player.CharacterAdded:Connect(function(character)
                     game.Workspace.CurrentCamera.CameraSubject = character
                 end)
-                Rayfield:Notify({
-                   Title = "View | AntiOder Hub",
-                   Content = "You're watching: " ..player.Name,
-                   Duration = 6.5,
-                   Image = 4483362458,
-               })
             else
                 print("Jogador não encontrado.")
                 viewEnabled = false
@@ -442,7 +436,7 @@ end
 local Input = FuncTab:CreateInput({
    Name = "Nickname",
    CurrentValue = "",
-   PlaceholderText = "",
+   PlaceholderText = "Nickname",
    RemoveTextAfterFocusLost = false,
    Flag = "Input1",
    Callback = function(value)
