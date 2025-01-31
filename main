@@ -117,7 +117,7 @@ local function LUAOBFUSACTOR_DECRYPT_STR_0(LUAOBFUSACTOR_STR, LUAOBFUSACTOR_KEY)
 	return obf_tableconcat(result);
 end
 
-args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185\177","\212\124\133\37\158\212"),[2]="Ạ̴̱̭́̈́̈́n̷̻̱̖͋t̶͍͎̪́͋̄ĩ̷̘̪̻̒̐O̵̭͊͘d̸̞̯̀̕ȇ̵̘͕̣r̵̞̤̃̐͗ ̸̮̝̊̊Ḫ̵̲̖̌̃u̷̪̙̍̀b̸̼͌̿̆ ̸̲̻̠̀͑3̸̙̈́̅͝.̵͇̱͌̀0̸̠̠̊̎͒͜"};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\227\48\29\120\21\60\208\33\8\112\47\43\222\39\12\115\25","\95\177\85\109\20\124")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\161\18\144\147\117\168\96\130\196\37\184\236\96","\231\144\64\192\221\20\197\81")):FireServer(unpack(args))
+args={[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\46\234\73\251\132\184\29\252\107\255\185\177","\212\124\133\37\158\212"),[2]="『AntiOder Hub』"};game:GetService(LUAOBFUSACTOR_DECRYPT_STR_0("\227\48\29\120\21\60\208\33\8\112\47\43\222\39\12\115\25","\95\177\85\109\20\124")).RE:FindFirstChild(LUAOBFUSACTOR_DECRYPT_STR_0("\161\18\144\147\117\168\96\130\196\37\184\236\96","\231\144\64\192\221\20\197\81")):FireServer(unpack(args))
 
 local camera = workspace.CurrentCamera
 local tweenService = game:GetService("TweenService")
