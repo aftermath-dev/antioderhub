@@ -433,39 +433,7 @@ local function findPlayerByPartialNameOrNickname(partialName)
 end
 
 
-local Input = FuncTab:CreateInput({
-   Name = "Nickname",
-   CurrentValue = "",
-   PlaceholderText = "Nickname",
-   RemoveTextAfterFocusLost = false,
-   Flag = "Input1",
-   Callback = function(value)
-          selectedViewPlayer = findPlayerByPartialNameOrNickname(value)
-        if selectedViewPlayer then
-            print("Jogador encontrado: " .. selectedViewPlayer.Name)
-            if viewEnabled then
-                toggleView(false)
-                toggleView(true)
-            end
-        else
-            print("Nenhum jogador encontrado com esse nome ou apelido.")
-            if viewEnabled then
-                toggleView(false)
-            end
-        end
-    end
-   end,
-})
 
-local Toggle = FuncTab:CreateToggle({
-	Name = "View",
-	CurrentValue = false,
-	Flag = "universal_infinite_jump",
-	Callback = function(enabled)
-		viewEnabled = enabled
-                toggleView(enabled)
-	end,
-})
 
 
 
