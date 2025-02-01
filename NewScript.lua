@@ -73,4 +73,6 @@ local Getkey = Tabs.KeySys:AddButton({
        setclipboard(KeyGuardLibrary.getLink())
     end
 })
+
+Window:SelectTab(1)
     
