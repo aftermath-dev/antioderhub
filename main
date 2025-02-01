@@ -506,14 +506,9 @@ loadstring(game:HttpGet("https://pastebin.com/raw/gvUFpwQw"))()
    end,
 })
 
-local Button = OtherTab:CreateButton({
-   Name = "Stretched Resolution (СЂР°СЃС‚СЏРі СЌРєСЂР°РЅР°)",
-   Callback = function()
-loadstring(game:HttpGet("https://pastebin.com/raw/HWD8dq9z"))()
-   end,
-})
+
 local Slider = OtherTab:CreateSlider({
-   Name = "Stretched Resolution (СЂР°СЃС‚СЏРі СЌРєСЂР°РЅР°)",
+   Name = "Stretched Resolution (растег экрана)",
    Range = {0.01, 1.00},
    Increment = 0.01,
    Suffix = "Resolution",
@@ -1320,7 +1315,7 @@ local Button = BrTab:CreateButton({
 		end
    end,
 })
-local Button = TROLLTab:CreateButton({
+local Button = BrTab:CreateButton({
    Name = "Stop Id",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\192\225\19\207\249\179\247\203\17\214\221\168\227\225\19\240\245\165\228", "\221\144\136\112\164\144"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\15\101\32\242\10\109\47\242\14\104", "\196\57\93\25")};
@@ -1328,7 +1323,7 @@ local Button = TROLLTab:CreateButton({
    end,
 })
 
-local Button = TROLLTab:CreateButton({
+local Button = BrTab:CreateButton({
    Name = "Moskau",
    Callback = function()
                 local args = {[1]=LUAOBFUSACTOR_DECRYPT_STR_0("\67\53\209\125\122\50\213\85\114\46\255\99\96\53\209\66\118\36\198", "\22\19\92\178"),[2]=LUAOBFUSACTOR_DECRYPT_STR_0("\143\88\22\126\232\228\143\91\19", "\209\190\107\35\78\221")};
