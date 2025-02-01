@@ -51,7 +51,7 @@ local Checkkey = Tabs.KeySys:AddButton({
     end
 })
 
-local Checkkey = Tabs.KeySys:AddButton({
+local Checkvipkey = Tabs.KeySys:AddButton({
     Title = "Check Premium Key",
     Description = "Enter Key before pressing this button",
     Callback = function()
