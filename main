@@ -697,7 +697,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/Draw-To-Chat-Obf
    end,
 })
 
-local SkinTab = Window:CreateTab("Skin", "user-round-pen")
+local SkinTab = Window:CreateTab("Skin", "person-standing")
 local SkinSection = SkinTab:CreateSection("Skin Scripts")
 
 local Button = SkinTab:CreateButton({
