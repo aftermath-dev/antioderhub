@@ -212,7 +212,7 @@ local Window = Rayfield:CreateWindow({
 
 
 
-local ABOUTTab = Window:CreateTab("Home", "house") -- Title, Image
+local ABOUTTab = Window:CreateTab("Home", nil) -- Title, Image
 local ABOUTSection = ABOUTTab:CreateSection("About script")
 
 Rayfield:Notify({
@@ -900,7 +900,7 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
    end,
 })
 
-local BrTab = Window:CreateTab("Brookhaven", "house")
+local BrTab = Window:CreateTab("Brookhaven", nil)
 local BrSection = BrTab:CreateSection("illusion")
 
 local Button = BrTab:CreateButton({
