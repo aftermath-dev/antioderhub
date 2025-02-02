@@ -212,7 +212,7 @@ local Window = Rayfield:CreateWindow({
 
 
 
-local ABOUTTab = Window:CreateTab("Home", nil) -- Title, Image
+local ABOUTTab = Window:CreateTab("Home", "house") -- Title, Image
 local ABOUTSection = ABOUTTab:CreateSection("About script")
 
 Rayfield:Notify({
@@ -241,7 +241,7 @@ setclipboard(tostring(copy))
    end,
 })
 
-local MainTab = Window:CreateTab("Character", nil)
+local MainTab = Window:CreateTab("Character", "person-standing")
 local MainSection = MainTab:CreateSection("Character")
 
 
@@ -288,7 +288,7 @@ MainTab:CreateButton({
 	end,
 })
 
-local FuncTab = Window:CreateTab("Functions", nil)
+local FuncTab = Window:CreateTab("Functions", "parentheses")
 local FuncSection = FuncTab:CreateSection("ESP")
 
 local Toggle = FuncTab:CreateToggle({
@@ -438,7 +438,7 @@ end
 
 
 
-local AdminTab = Window:CreateTab("Admin Scripts and More", nil)
+local AdminTab = Window:CreateTab("Admin Scripts and More", "file-sliders")
 local AdminSection = AdminTab:CreateSection("Admin Scripts and More")
 
 local Button = AdminTab:CreateButton({
@@ -462,7 +462,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/sAVghM5x"))()
    end,
 })
 
-local OtherTab = Window:CreateTab("Universal Cool Scripts", nil)
+local OtherTab = Window:CreateTab("Universal Cool Scripts", "file-code-2")
 local OtherSection = OtherTab:CreateSection("Universal Cool Scripts")
 
 local Button = OtherTab:CreateButton({
@@ -636,7 +636,7 @@ local Toggle = OtherTab:CreateToggle({
 
 
 
-local TROLLTab = Window:CreateTab("Raid Scripts", nil)
+local TROLLTab = Window:CreateTab("Raid Scripts", "ban")
 local TROLLSection = TROLLTab:CreateSection("Raid Scripts")
 
 
@@ -665,7 +665,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/rfKaavP3"))()
    end,
 })
 
-local ChatTab = Window:CreateTab("Chat", nil)
+local ChatTab = Window:CreateTab("Chat", "message-square-more")
 local ChatSection = ChatTab:CreateSection("Chat Scripts")
 
 local Button = ChatTab:CreateButton({
@@ -697,7 +697,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ocfi/Draw-To-Chat-Obf
    end,
 })
 
-local SkinTab = Window:CreateTab("Skin", nil)
+local SkinTab = Window:CreateTab("Skin", "user-round-pen")
 local SkinSection = SkinTab:CreateSection("Skin Scripts")
 
 local Button = SkinTab:CreateButton({
@@ -714,7 +714,7 @@ print("<ANTIODER HUB NOTIFICATION> soon... :>")
    end,
 })
 
-local ServerTab = Window:CreateTab("Server", nil)
+local ServerTab = Window:CreateTab("Server", "hard-drive")
 local ServerSection = ServerTab:CreateSection("Server Scripts")
 
 local Button = ServerTab:CreateButton({
@@ -745,16 +745,16 @@ loadstring(game:HttpGet("https://pastebin.com/raw/wQ6GFfeG"))()
    end,
 })
 
-local NewsTab = Window:CreateTab("News and Changelog", nil)
+local NewsTab = Window:CreateTab("News and Changelog", "newspaper")
 local NewsSection = NewsTab:CreateSection("News")
 
-local Label = NewsTab:CreateLabel("Script officially released on scriptblox.com!", "rewind")
+local Label = NewsTab:CreateLabel("Script officially released on scriptblox.com!", "newspaper")
 local ChangeSection = NewsTab:CreateSection("Changelog")
 
 local Paragraph = NewsTab:CreateParagraph({Title = "1.11 | 01.01.2025", Content = "Added new color of script, updated Server Tab, added changelog"})
 local Paragraph = NewsTab:CreateParagraph({Title = "1.12 | 02.01.2025", Content = "Updated loader"})
 
-local CameraTab = Window:CreateTab("Camera", nil)
+local CameraTab = Window:CreateTab("Camera", "camera")
 local CameraSection = CameraTab:CreateSection("Camera")
 
 local Slider = CameraTab:CreateSlider({
@@ -769,7 +769,7 @@ local Slider = CameraTab:CreateSlider({
    end,
 })
 
-local VisualTab = Window:CreateTab("Visual", nil)
+local VisualTab = Window:CreateTab("Visual", "eye")
 local VisualSection = VisualTab:CreateSection("Visual")
 
 local Toggle = VisualTab:CreateToggle({
@@ -824,7 +824,7 @@ local Toggle = VisualTab:CreateToggle({
 
 
 
-local SexTab = Window:CreateTab("S*x", nil)
+local SexTab = Window:CreateTab("S*x", "book-heart")
 
 local SexSection = SexTab:CreateSection("S*x R6")
 
@@ -900,7 +900,7 @@ loadstring(game:HttpGet("https://pastefy.app/YZoglOyJ/raw"))()
    end,
 })
 
-local BrTab = Window:CreateTab("Brookhaven", nil)
+local BrTab = Window:CreateTab("Brookhaven", "house")
 local BrSection = BrTab:CreateSection("illusion")
 
 local Button = BrTab:CreateButton({
