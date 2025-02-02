@@ -24,7 +24,8 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    KeySys = Window:AddTab({ Title = "Key System", Icon = "key" }),
+    KeySys = Window:AddTab({ Title = "Free Key System", Icon = "key" }),
+    VIPKeySys = Window:AddTab({ Title = "VIP Key System", Icon = "crown" })
 }
 
 local Entkey = Tabs.KeySys:AddInput("Input", {
@@ -58,6 +59,32 @@ local Getkey = Tabs.KeySys:AddButton({
     Description = "Get Key here",
     Callback = function()
        setclipboard(KeyGuardLibrary.getLink())
+    end
+})
+
+local EntVIPkey = Tabs.KeySys:AddInput("Input", {
+    Title = "Enter VIP Key",
+    Description = "Enter VIP Key Here",
+    Default = "",
+    Placeholder = "Enter key…",
+    Numeric = false,
+    Finished = false,
+    Callback = function(Value)
+        key = Value
+    end
+})
+
+local CheckVIPkey = Tabs.KeySys:AddButton({
+    Title = "Check VIP Key",
+    Description = "Enter Key before pressing this button",
+    Callback = function()
+        local response = KeyGuardLibrary.validatePremiumKey(key)
+        if response == trueData then
+           print("Key is valid")
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/aftermath-dev/antioderhub/refs/heads/main/main"))()
+        else
+           print("Key is invalid")
+        end
     end
 })
 
