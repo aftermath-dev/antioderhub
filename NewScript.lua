@@ -62,7 +62,7 @@ local Getkey = Tabs.KeySys:AddButton({
     end
 })
 
-local EntVIPkey = Tabs.KeySys:AddInput("Input", {
+local EntVIPkey = Tabs.VIPKeySys:AddInput("Input", {
     Title = "Enter VIP Key",
     Description = "Enter VIP Key Here",
     Default = "",
@@ -74,7 +74,7 @@ local EntVIPkey = Tabs.KeySys:AddInput("Input", {
     end
 })
 
-local CheckVIPkey = Tabs.KeySys:AddButton({
+local CheckVIPkey = Tabs.VIPKeySys:AddButton({
     Title = "Check VIP Key",
     Description = "Enter Key before pressing this button",
     Callback = function()
@@ -87,5 +87,15 @@ local CheckVIPkey = Tabs.KeySys:AddButton({
         end
     end
 })
+
+local BuyVIPkey = Tabs.VIPKeySys:AddButton({
+    Title = "Buy VIP Key",
+    Description = "Copy link for info",
+    Callback = function()
+        setclipboard("https://jpst.it/47PoT")
+    end
+})
+
+
 
 Window:SelectTab(1)
